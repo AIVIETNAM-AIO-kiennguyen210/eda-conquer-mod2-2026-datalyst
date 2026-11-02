@@ -1,0 +1,356 @@
+\documentclass[12pt]{eDA_conquer2026}
+\addbibresource{references.bib}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+
+\title{%
+  \begin{center}
+        \Large {AI VIET NAM -- eDA Conquer 2026}\\[.5ex]
+        \Huge \textbf{Điền tên bài Data Analytics vào đây}\\[.5ex]
+  \end{center}
+}
+
+% Author --------------------------------------------------------------------
+\posttitle{
+\author{
+\begin{minipage}{\textwidth}
+\centering
+{
+\vspace{-1.5em}
+Tên nhóm / Tên thành viên
+}\
+\end{minipage}
+}
+}
+\date{}
+
+% Header --------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\href{https://www.facebook.com/aivietnam.edu.vn}{\textcolor{aivnGreen}{\bfseries AI VIET NAM (eDA Conquer 2026)}}}
+\rhead{\href{https://aivietnam.edu.vn/}{\textcolor{aivnGreen}{\bfseries aivietnam.edu.vn}}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1.0pt}
+\renewcommand{\headrule}{{\color{aivnGreen}\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+
+\begin{document}
+\maketitle
+\vspace{-5.5em}
+\setlength{\epigraphwidth}{0.6\textwidth}
+
+% --------------------------------------------------------------------------
+\section*{Hướng dẫn sử dụng báo cáo}
+\addcontentsline{toc}{section}{Hướng dẫn sử dụng báo cáo}
+
+Template này được dùng để xây dựng báo cáo Data Analytics cho nhiều domain khác nhau. Báo cáo không nhằm ghi lại toàn bộ những gì nhóm đã làm với dữ liệu. Mục tiêu là dẫn người đọc từ một vấn đề cụ thể đến kết luận có bằng chứng: cần trả lời câu hỏi nào, dữ liệu nào được sử dụng, phân tích được thực hiện ra sao, phát hiện quan trọng là gì và những phát hiện đó có ý nghĩa gì trong bối cảnh của bài toán.
+
+\textbf{Cách sử dụng template.}
+Các hướng dẫn trong tài liệu này chỉ là khung định hướng. Khi hoàn thiện báo cáo, nhóm cần thay chúng bằng nội dung thực tế của project và xóa những nội dung không còn cần thiết. Không nên trả lời từng gạch đầu dòng như một biểu mẫu. Một đoạn viết tốt thường có một luận điểm chính, bằng chứng phù hợp và một câu giải thích vì sao bằng chứng đó quan trọng đối với câu hỏi đang phân tích.
+
+\textbf{Mạch phân tích khuyến nghị.}
+
+\begin{aivncodebox}[Mạch xuyên suốt báo cáo:]
+
+\begin{center}
+\textbf{Vấn đề \& Câu hỏi}
+\quad $\longrightarrow$ \quad
+\textbf{Dữ liệu \& Phân tích}
+\quad $\longrightarrow$ \quad
+\textbf{Kết quả \& Ý nghĩa}
+\end{center}
+
+Báo cáo nên bắt đầu từ một vấn đề cụ thể và chuyển vấn đề đó thành các câu hỏi cần dữ liệu trả lời. Dữ liệu và các phân tích tiếp theo được lựa chọn để làm sáng tỏ những câu hỏi này. Từ kết quả thu được, nhóm xác định các phát hiện quan trọng, diễn giải ý nghĩa của chúng và đưa ra đề xuất khi có đủ cơ sở.
+
+Mỗi kết luận quan trọng cần có thể truy ngược về bảng, biểu đồ, phép so sánh hoặc kết quả định lượng đã được trình bày trong báo cáo.
+\end{aivncodebox}
+
+\textbf{Nguyên tắc viết.}
+Báo cáo Data Analytics nên tập trung vào điều dữ liệu giúp người đọc hiểu được thay vì mô tả toàn bộ quá trình nhóm đã thực hiện. Mỗi đoạn nên xoay quanh một luận điểm chính, đi kèm bằng chứng phù hợp và phần giải thích về ý nghĩa của kết quả đối với câu hỏi đang phân tích. Khi sử dụng các từ như ``tăng'', ``giảm'', ``cao'', ``thấp'', ``khác biệt'' hoặc ``bất thường'', cần nêu rõ đang so sánh với nhóm, thời điểm hoặc giá trị nào và mức chênh lệch là bao nhiêu khi có thể. Trước hết nên trình bày điều dữ liệu trực tiếp cho thấy, sau đó mới diễn giải ý nghĩa hoặc đưa ra giả thuyết; một mối liên hệ giữa hai biến chưa đủ để kết luận quan hệ nhân quả. Mỗi kết luận quan trọng cũng cần có thể truy ngược về một bảng, biểu đồ, metric hoặc phép so sánh trong báo cáo. Các thuật ngữ, metric và nhóm dữ liệu nên được gọi tên và định nghĩa nhất quán xuyên suốt; nếu phạm vi dữ liệu, cách nhóm hoặc cách tính thay đổi, cần nói rõ để tránh làm người đọc hiểu sai kết quả.
+
+\textbf{Hình ảnh, biểu đồ và bảng biểu.}
+Hình ảnh, biểu đồ và bảng biểu không chỉ dùng để minh họa. Mỗi thành phần cần phục vụ một câu hỏi phân tích hoặc một nhận định cụ thể. Tiêu đề của chúng nên nói điều người đọc cần nhận ra thay vì chỉ ghi tên loại biểu đồ, hình ảnh,... Trong phần mô tả tiêu đề, cần chỉ ra điểm đáng chú ý của hình và giải thích nó liên quan thế nào đến câu hỏi phân tích.
+
+\textbf{Viết tự nhiên và có dấu ấn của nhóm.}
+Báo cáo nên phản ánh những quyết định thực tế trong quá trình phân tích: vì sao chọn phạm vi dữ liệu này, vì sao loại một biến, vì sao tách một nhóm, kết quả nào gây bất ngờ và giả thuyết nào đã không được dữ liệu ủng hộ. Những chi tiết này làm cho lập luận cụ thể và đáng tin hơn nhiều so với các đoạn mô tả chung. Không cần cố làm câu văn phức tạp. Câu ngắn, chính xác và gắn với số liệu thường hiệu quả hơn.
+
+\textbf{Kiểm tra trước khi nộp.}
+\begin{itemize}[label=$\square$, leftmargin=1.6em, itemsep=0.25em]
+    \item Bài toán, mục tiêu phân tích và các câu hỏi cần dữ liệu trả lời đã được xác định.
+    
+    \item Nguồn dữ liệu, khoảng thời gian, đơn vị quan sát và phạm vi dữ liệu được nêu đầy đủ.
+    
+    \item Các metric chính có định nghĩa hoặc công thức tính và được sử dụng nhất quán trong toàn báo cáo.
+    
+    \item Mỗi biểu đồ hoặc bảng đều gắn với một câu hỏi phân tích và có nhận định chính đi kèm.
+    
+    \item Finding trình bày điều dữ liệu cho thấy, còn insight và recommendation được trình bày ở bước diễn giải sau đó.
+    
+    \item Mỗi kết luận quan trọng đều có bảng, biểu đồ, metric hoặc phép so sánh làm bằng chứng hỗ trợ.
+    
+    \item Các giới hạn có thể ảnh hưởng đến kết luận như phạm vi dữ liệu, missing data, thời gian hoặc biến còn thiếu đã được đề cập.
+    
+    \item Các placeholder, nội dung hướng dẫn và phần không còn sử dụng đã được xóa khỏi bản nộp.
+\end{itemize}
+
+Sau khi hoàn thành, một người không tham gia project vẫn cần trả lời được bốn câu hỏi: 
+
+\textbf{(i) nhóm đang phân tích vấn đề gì?, (ii) dữ liệu cho thấy điều gì?, (iii) vì sao kết quả đó quan trọng?} và \textbf{(iv) có thể làm gì tiếp theo?}
+
+\newpage
+
+% --------------------------------------------------------------------------
+\section{Problem \& Analytical Questions}
+
+Phần này xác định bài toán mà báo cáo cần giải quyết và chuyển bài toán đó thành các câu hỏi có thể phân tích bằng dữ liệu. Người đọc cần hiểu được vấn đề xuất phát từ đâu, điều gì đang cần được làm sáng tỏ và phân tích sẽ tập trung trả lời những câu hỏi nào. Vì vậy, không nên mở đầu bằng dataset, công cụ hoặc các kỹ thuật đã sử dụng.
+
+Nội dung nên đi theo một mạch ngắn:
+
+\begin{enumerate}
+    \item \textbf{Bối cảnh và vấn đề:} Giới thiệu tình huống liên quan trực tiếp đến project và chỉ ra vấn đề cụ thể cần được hiểu, kiểm tra hoặc cải thiện.
+    
+    \item \textbf{Mục tiêu phân tích:} Nêu điều nhóm cần tìm ra từ dữ liệu để làm sáng tỏ vấn đề trên.
+    
+    \item \textbf{Câu hỏi phân tích:} Chuyển mục tiêu thành khoảng 2--4 câu hỏi cụ thể, làm cơ sở tổ chức các phần phân tích phía sau.
+\end{enumerate}
+
+Câu hỏi phân tích cần đủ cụ thể để tránh những hướng phân tích quá rộng. Thay vì hỏi ``Điều gì ảnh hưởng đến kết quả?'', có thể đặt câu hỏi như ``Nhóm nào có tỷ lệ \textbf{[kết quả]} cao nhất?'', ``\textbf{[metric]} thay đổi như thế nào giữa các nhóm hoặc theo thời gian?'' hoặc ``Sự khác biệt đáng chú ý nhất xuất hiện ở đâu?''. Các câu hỏi nên cùng phục vụ một bài toán thay vì trở thành những hướng phân tích tách rời.
+
+\begin{aivncodebox}[Khung kiểm tra:]
+Sau khi đọc phần này, người đọc cần hiểu được nhóm đang phân tích vấn đề gì, mục tiêu của phân tích là gì và những câu hỏi nào sẽ được trả lời trong các phần tiếp theo.
+\end{aivncodebox}
+
+\newpage
+
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\thispagestyle{fancy}
+
+% --------------------------------------------------------------------------
+\newpage
+\section{Data \& Preparation}
+
+Phần này mô tả dữ liệu được sử dụng, phạm vi phân tích, các metric cần thiết và những bước chuẩn bị dữ liệu có ảnh hưởng đến kết quả. Mục tiêu là giúp người đọc hiểu dữ liệu mà các phần phân tích phía sau được xây dựng trên đó, chưa đi vào các pattern, xu hướng hoặc khác biệt quan sát được từ dữ liệu.
+
+\subsection*{Dữ liệu và phạm vi}
+
+Trình bày nguồn dữ liệu, khoảng thời gian, đơn vị quan sát, kích thước dữ liệu và các trường thông tin chính được sử dụng trong báo cáo. Nếu dữ liệu chỉ bao phủ một nhóm đối tượng, khu vực hoặc giai đoạn nhất định, cần nêu rõ để xác định phạm vi mà kết quả phân tích có thể phản ánh.
+
+\subsection*{Metrics và định nghĩa}
+
+Định nghĩa những metric và thuật ngữ được sử dụng trong các phần phân tích tiếp theo. Với metric tự xây dựng, cần nêu công thức hoặc logic tính. Nếu một thuật ngữ có thể được hiểu theo nhiều cách, cần chỉ ra cách định nghĩa được sử dụng trong báo cáo để các kết quả được diễn giải nhất quán.
+
+\subsection*{Data preparation}
+
+Trình bày những bước xử lý có thể ảnh hưởng đến kết quả phân tích, chẳng hạn xử lý missing values, duplicate, dữ liệu không hợp lệ, thay đổi kiểu dữ liệu, tạo biến mới hoặc lọc dữ liệu. Không cần ghi lại toàn bộ quá trình cleaning; chỉ nên giữ những quyết định mà nếu thay đổi, kết quả hoặc cách hiểu dữ liệu cũng có thể thay đổi.
+
+
+\begin{aivncodebox}[Ví dụ cách báo cáo quyết định xử lý dữ liệu:]
+"Qua kiểm tra dữ liệu, 1.8\% bản ghi thiếu đồng thời \texttt{start\_time} và \texttt{end\_time}. 
+Các bản ghi này không đủ thông tin để tính \texttt{duration}, là biến được sử dụng trong các phân tích tiếp theo. 
+Vì vậy, nhóm loại các bản ghi này khỏi những phân tích liên quan đến \texttt{duration}, thay vì tự điền giá trị thiếu. 
+Tỷ lệ dữ liệu bị loại nhỏ và không tập trung đáng kể ở một nhóm quan sát cụ thể, nên quyết định này được xem là ít ảnh hưởng đến cơ cấu dữ liệu còn lại."
+
+
+Thay vì chỉ viết:
+
+
+``Dữ liệu được làm sạch và xử lý missing values trước khi phân tích.''
+\end{aivncodebox}
+
+
+
+
+% --------------------------------------------------------------------------
+\newpage
+\section{Exploratory Analysis}
+
+Exploratory Analysis giúp người đọc làm quen với dữ liệu trước khi đi vào các câu hỏi phân tích chính. Phần này tập trung vào những đặc điểm tổng quan có ảnh hưởng đến cách đọc và phân tích dữ liệu, không nhằm trả lời đầy đủ các Analytical Questions đã đặt ra ở phần đầu.
+
+Có thể tập trung vào ba nhóm quan sát:
+\begin{itemize}
+    \item \textbf{Quy mô và phân bố:} dữ liệu tập trung ở những nhóm, khoảng giá trị hoặc giai đoạn nào.
+    
+    \item \textbf{Đặc điểm tổng quan:} những biến động, chênh lệch hoặc pattern ban đầu cần lưu ý trước khi phân tích sâu.
+    
+    \item \textbf{Điểm cần kiểm tra thêm:} các giá trị, nhóm hoặc giai đoạn khác đáng kể so với phần còn lại và có thể ảnh hưởng đến phân tích phía sau.
+\end{itemize}
+
+Không cần đưa toàn bộ histogram, boxplot hoặc correlation matrix đã thử trong notebook. Chỉ giữ những quan sát giúp người đọc hiểu dữ liệu hoặc tạo cơ sở cho một phân tích tiếp theo. Nếu một kết quả trực tiếp trả lời Analytical Question, kết quả đó nên được trình bày trong Main Analysis thay vì dừng lại ở phần này.
+
+
+
+% --------------------------------------------------------------------------
+
+\newpage
+\section{Main Analysis}
+
+Đây là phần trọng tâm của báo cáo, nơi các câu hỏi đã đặt ra trong \textit{Problem \& Analytical Questions} được trả lời bằng dữ liệu. Mỗi tiểu mục nên tập trung vào một câu hỏi cụ thể, trình bày bằng chứng cần thiết và đưa ra kết luận trực tiếp từ bằng chứng đó.
+
+Các kỹ thuật như so sánh giữa các nhóm, phân tích theo thời gian, segmentation, correlation hoặc các phép kiểm định được sử dụng khi cần để trả lời câu hỏi. Không cần dành riêng một phần để mô tả từng kỹ thuật nếu chúng không phải là nội dung chính mà người đọc cần hiểu.
+
+Một phân tích có thể đi theo mạch:
+
+\begin{center}
+\textbf{Câu hỏi}
+$\rightarrow$
+\textbf{Phân tích}
+$\rightarrow$
+\textbf{Bằng chứng}
+$\rightarrow$
+\textbf{Kết luận}
+\end{center}
+
+\subsection*{Analytical Question 1: [Điền câu hỏi]}
+
+Trình bày những phân tích cần thiết để trả lời câu hỏi, sau đó tập trung vào các bảng, biểu đồ hoặc kết quả định lượng có giá trị nhất. Phần chữ cần chỉ ra điều bằng chứng cho thấy và kết luận nào có thể được rút ra từ đó.
+
+\subsection*{Analytical Question 2: [Điền câu hỏi]}
+
+Tiếp tục trả lời câu hỏi tiếp theo dựa trên bằng chứng phù hợp. Khi so sánh các nhóm, thời điểm hoặc điều kiện, cần nêu cụ thể mức chênh lệch và cơ sở của phép so sánh thay vì chỉ nhận xét ``cao hơn'', ``thấp hơn'' hoặc ``có khác biệt''.
+
+\subsection*{Analytical Question 3: [Điền câu hỏi, nếu cần]}
+
+Sử dụng khi cần thêm một phân tích để làm rõ vấn đề ban đầu hoặc kiểm tra sâu hơn một kết quả đã xuất hiện ở các câu hỏi trước.
+
+\begin{aivncodebox}[Nguyên tắc trình bày:]
+Mỗi Analytical Question cần có một câu trả lời được hỗ trợ bởi bằng chứng cụ thể. Chỉ đưa vào những bảng, biểu đồ và phép phân tích có đóng góp trực tiếp cho câu trả lời đó; các thử nghiệm trung gian không cần thiết có thể để trong notebook hoặc phụ lục.
+\end{aivncodebox}
+
+
+
+
+% --------------------------------------------------------------------------
+\newpage
+\section{Key Findings \& Insights}
+
+Phần này tổng hợp những kết quả quan trọng nhất sau khi các Analytical Questions đã được trả lời. Không cần trình bày lại toàn bộ phân tích hoặc lặp lại từng biểu đồ trong phần Main Analysis. Thay vào đó, nhóm nên chọn những kết quả có ảnh hưởng lớn nhất đến cách hiểu vấn đề ban đầu và chỉ ra chúng liên kết với nhau như thế nào.
+
+\textbf{Finding} là điều dữ liệu đã cho thấy sau quá trình phân tích. Một finding nên cụ thể và có thể truy ngược về kết quả đã trình bày ở phần Main Analysis.
+
+\textbf{Insight} đi thêm một bước bằng cách giải thích finding đó giúp hiểu gì về vấn đề đang nghiên cứu. Insight không phải là cách diễn đạt lại cùng một con số, cũng chưa phải recommendation. Khi dữ liệu chỉ cho thấy mối liên hệ, cần tránh diễn giải thành quan hệ nhân quả nếu chưa có đủ bằng chứng.
+
+Ví dụ, nếu các phân tích trước cho thấy nhóm khách hàng mới có churn rate cao hơn, mức churn tập trung trong 30 ngày đầu và nhóm có ít tương tác có tỷ lệ churn cao nhất, phần này không cần trình bày lại ba biểu đồ. Thay vào đó, có thể tổng hợp rằng churn chủ yếu tập trung ở giai đoạn đầu của vòng đời khách hàng và có liên hệ với mức độ tương tác thấp.
+
+
+\begin{aivncodebox}[Từ Finding đến Insight:]
+Một \textbf{Finding} tốt cần trả lời được: \textit{Điều gì đã xảy ra, ở nhóm nào, trong điều kiện nào và mức độ khác biệt là bao nhiêu?}
+
+Một \textbf{Insight} tốt cần đi xa hơn con số bằng cách trả lời ít nhất một trong các câu hỏi sau:
+
+\begin{itemize}
+    \item Kết quả này cho thấy vấn đề đang tập trung ở đâu?
+    \item Kết quả này thay đổi cách hiểu nào về vấn đề ban đầu?
+    \item Khi kết hợp với các finding khác, pattern chung nào xuất hiện?
+\end{itemize}
+
+Ví dụ:
+
+\textbf{Finding:} Khách hàng mới có churn rate 18.4\%, cao hơn 7.1 điểm phần trăm so với khách hàng hiện tại; phần lớn churn xuất hiện trong 30 ngày đầu.
+
+\textbf{Insight:} Rủi ro churn tập trung chủ yếu ở giai đoạn đầu của vòng đời khách hàng, thay vì phân bố đồng đều trong toàn bộ thời gian sử dụng dịch vụ.
+
+Nếu phần ``Insight'' chỉ đổi cách diễn đạt của cùng một con số, đó vẫn là finding chứ chưa phải insight.
+\end{aivncodebox}
+
+
+Nên ưu tiên một số những finding thực sự quan trọng thay vì tóm tắt lại tất cả kết quả đã xuất hiện trong báo cáo.
+
+
+% --------------------------------------------------------------------------
+
+\section{Recommendations}
+
+Phần này chuyển các finding và insight quan trọng thành những đề xuất có thể xem xét trong bối cảnh của bài toán. Recommendation không nhất thiết là một quyết định kinh doanh; tùy domain, đó có thể là thay đổi trong vận hành, ưu tiên một nhóm đối tượng, điều chỉnh chính sách, tăng cường theo dõi một rủi ro hoặc thay đổi cách thu thập dữ liệu.
+
+Mỗi recommendation cần gắn với một vấn đề đã được chứng minh ở các phần trước. Thay vì chỉ nêu ``nên cải thiện'' hoặc ``nên tối ưu'', cần chỉ ra \textbf{đối tượng hoặc vấn đề nào nên được ưu tiên}, \textbf{bằng chứng nào dẫn đến đề xuất đó} và \textbf{kết quả sau khi thực hiện có thể được theo dõi bằng cách nào}.
+
+\begin{aivncodebox}[Từ Insight đến Recommendation:]
+Nếu phân tích cho thấy churn tập trung chủ yếu ở khách hàng mới trong 30 ngày đầu, recommendation nên tập trung vào giai đoạn này thay vì đề xuất chung chung ``cải thiện trải nghiệm khách hàng''.
+
+Ví dụ:
+
+``Ưu tiên kiểm tra và cải thiện quy trình onboarding trong 30 ngày đầu đối với nhóm khách hàng mới. Hiệu quả của thay đổi có thể được theo dõi thông qua churn rate trong 30 ngày và tỷ lệ hoàn thành các bước onboarding.''
+\end{aivncodebox}
+
+Recommendation nên tương xứng với mức độ bằng chứng. Nếu phân tích mới chỉ cho thấy một mối liên hệ, nên đề xuất kiểm tra hoặc thử nghiệm thêm thay vì khẳng định một biện pháp chắc chắn sẽ cải thiện kết quả.
+
+
+% --------------------------------------------------------------------------
+\newpage
+\section{Limitations \& Next Steps}
+
+Phần này xác định những điều kiện giới hạn cách diễn giải và sử dụng kết quả. Limitation không phải là danh sách những gì project ``làm chưa tốt'', mà là những yếu tố trong dữ liệu hoặc thiết kế phân tích có thể khiến kết luận thay đổi nếu điều kiện đó khác đi.
+
+Các limitation đáng đề cập thường liên quan đến phạm vi và độ đại diện của dữ liệu, khoảng thời gian quan sát, missing data hoặc measurement error, biến quan trọng chưa được thu thập, cách định nghĩa metric, giả định của phân tích hoặc việc dữ liệu quan sát chưa đủ để xác định quan hệ nhân quả.
+
+Không cần liệt kê mọi hạn chế có thể có. Chỉ nên giữ những limitation thực sự ảnh hưởng đến một hoặc nhiều kết luận của báo cáo và nói cụ thể kết luận nào đang bị giới hạn bởi chúng.
+
+\textbf{Next Steps} nên xuất phát trực tiếp từ những limitation hoặc câu hỏi chưa được dữ liệu hiện tại giải quyết. Khác với Recommendation, Next Step không nhằm đề xuất hành động dựa trên kết quả hiện tại mà nhằm \textbf{kiểm tra, mở rộng hoặc tăng độ tin cậy của kết luận}.
+
+\begin{aivncodebox}[Từ Limitation đến Next Step:]
+Không nên chỉ viết:
+
+``Dữ liệu còn hạn chế, cần thu thập thêm dữ liệu.''
+
+Nên chỉ ra giới hạn ảnh hưởng đến kết luận nào và dữ liệu bổ sung sẽ giúp kiểm tra điều gì.
+
+Ví dụ:
+
+``Phân tích hiện tại chỉ bao gồm dữ liệu trong Q2/2026 nên chưa xác định được churn cao ở khách hàng mới là pattern ổn định hay chỉ xuất hiện trong giai đoạn này. Bước tiếp theo là mở rộng dữ liệu sang các quý trước và sau Q2/2026 để kiểm tra liệu pattern này có duy trì theo thời gian hay không.''
+\end{aivncodebox}
+
+
+% --------------------------------------------------------------------------
+\newpage
+\newpage
+\section{References}
+\label{section:references}
+
+Phần này liệt kê những nguồn đã được sử dụng để cung cấp dữ liệu, định nghĩa, số liệu bên ngoài, phương pháp hoặc bằng chứng hỗ trợ cho báo cáo. Chỉ nên đưa vào References những nguồn thực sự được sử dụng hoặc được dẫn trong nội dung.
+
+Nguồn cần được dẫn khi một thông tin không được tạo ra trực tiếp từ dữ liệu của project, chẳng hạn định nghĩa từ tài liệu chuyên môn, số liệu từ báo cáo bên ngoài, dataset công khai hoặc phương pháp lấy từ paper. Với dataset, nên ghi đủ tên nguồn, đơn vị cung cấp, phiên bản hoặc thời gian truy cập khi thông tin này có ảnh hưởng đến khả năng tái lập phân tích.
+
+Nhóm nên chọn một chuẩn trích dẫn phù hợp và sử dụng nhất quán trong toàn báo cáo. Không nên trộn nhiều cách ghi tác giả, năm, tiêu đề hoặc đường dẫn trong cùng một danh mục tài liệu tham khảo.
+
+
+\begin{aivncodebox}[Mẫu thông tin cần có:]
+
+\textbf{Paper:}
+
+[Tác giả]. ([Năm]). [Tên bài báo]. \textit{[Tên hội nghị/tạp chí]}, [thông tin xuất bản]. [DOI/URL nếu có].
+
+\textbf{Dataset:}
+
+[Tác giả/Tổ chức]. ([Năm]). \textit{[Tên dataset]} [Data set]. [Repository/Nền tảng]. [URL].
+
+\textbf{Report hoặc Website:}
+
+[Tác giả/Tổ chức]. ([Năm hoặc ngày xuất bản]). \textit{[Tên tài liệu/trang]}. [Tên website hoặc đơn vị phát hành]. [URL].
+
+\end{aivncodebox}
+
+
+\label{section:references}
+\vspace{-3.2em}
+\printbibliography
+
+% --------------------------------------------------------------------------
+\newpage
+\begin{appendices}
+
+Phụ lục dành cho những nội dung cần thiết để kiểm tra hoặc tái lập phân tích nhưng không cần xuất hiện trong mạch chính của báo cáo. Không nên chuyển những bằng chứng quan trọng nhất xuống phụ lục chỉ để làm phần nội dung ngắn hơn.
+
+\begin{enumerate}
+\item \textbf{Repository / Notebook:} Link SQL, Python, R hoặc notebook sử dụng trong project.
+\item \textbf{Data Dictionary:} Mô tả đầy đủ các biến và quy ước dữ liệu.
+\item \textbf{Metric Definitions:} Công thức và cách tính các metric chi tiết.
+\item \textbf{Data Preparation:} Các bước cleaning hoặc transformation bổ sung.
+\item \textbf{Supplementary Analysis:} Bảng, biểu đồ hoặc kiểm tra độ nhạy không cần đặt trong phần chính.
+\item \textbf{Dashboard / Presentation:} Link dashboard, slide hoặc sản phẩm trình bày nếu có.
+\end{enumerate}
+
+\end{appendices}
+
+\end{document}
