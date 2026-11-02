@@ -94,7 +94,7 @@ Doanh nghiệp trong bài là ngân hàng AIV Bank. Ban lãnh đạo khối Khá
 
 \noindent \textbf{Q3.} Những khoản vay nào đang có dấu hiệu rủi ro và tiềm ẩn nguy cơ mất vốn?
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 Để làm rõ và bổ sung ý nghĩa cho 3 vấn đề trọng tâm trên, ta cần phân tích để tìm ra câu trả lời cho các câu hỏi chi tiết sau:
 
 \vspace{0.2cm}
@@ -121,13 +121,14 @@ Doanh nghiệp trong bài là ngân hàng AIV Bank. Ban lãnh đạo khối Khá
     \item Khi dư nợ OD2 giảm, phần giảm đến từ khoản vay trở về nhóm 1 hay từ khoản vay chuyển sang nhóm nợ xấu hơn?
 \end{itemize}
 
+\vspace{0.2cm}
 Dư nợ OD2 (nợ nhóm 2) và OD3-5 (nợ nhóm 3 đến 5, còn gọi là nợ xấu) chiếm tỷ trọng nhỏ trong tổng dư nợ, nhưng là nguồn phát sinh chi phí dự phòng. Nếu dư nợ OD2 giảm do khoản vay chuyển sang nhóm nợ xấu hơn, mức giảm đó không phản ánh chất lượng tín dụng cải thiện, và nguồn lực xử lý nợ có thể bị đặt vào đối tượng chưa cần ưu tiên.
 
 \section{Dữ liệu và cách chuẩn bị}
 
-Dataset AIV Bank là dữ liệu giả lập theo mô hình star schema, phục vụ Khối KHDN. Dữ liệu có 10.000 khách hàng, 31.104 hợp đồng và 333.882 dòng \textit{fact\_loan\_balance}. Bảng số dư gồm 31 ngày chốt cuối tháng, từ 31/12/2023 đến 30/06/2026. Đơn vị tiền tệ trong phân tích là VND sau quy đổi. Các bảng chính sử dụng gồm \textit{fact\_loan\_balance}, \textit{fact\_income\_monthly}, \textit{dim\_loan\_contract}, \textit{dim\_customer}, \textit{dim\_branch}, \textit{dim\_segment}, \textit{dim\_industry}, \textit{dim\_product} và \textit{dim\_date}. Dataset được cung cấp ở trạng thái sạch. Theo báo cáo QC, các quan hệ FK hợp lệ, không có dòng số dư không dương, không có duplicate khóa fact và không có NULL ở các bảng chính. Toàn bộ dữ liệu, dashboard Power BI và mã nguồn báo cáo của nhóm được lưu tại kho GitHub \url{https://github.com/AIVIETNAM-AIO-kiennguyen210/eda-conquer-mod2-2026-datalyst} (thư mục \texttt{data/}, \texttt{dashboard/}, \texttt{report/}). Ký hiệu $B_t$ là tổng dư nợ cuối kỳ tại tháng $t$ và $B_{g,t}$ là dư nợ của nhóm $g$. Các quyết định xử lý chính và định nghĩa bao gồm:
+Dataset AIV Bank là dữ liệu giả lập theo mô hình star schema, phục vụ Khối KHDN. Dữ liệu có 10.000 khách hàng, 31.104 hợp đồng và 333.882 dòng \textit{fact\_loan\_balance}. Bảng số dư gồm 31 ngày chốt cuối tháng, từ 31/12/2023 đến 30/06/2026. Đơn vị tiền tệ trong phân tích là VND sau quy đổi. Các bảng chính sử dụng gồm \textit{fact\_loan\_balance}, \textit{fact\_income\_monthly}, \textit{dim\_loan\_contract}, \textit{dim\_customer}, \textit{dim\_branch}, \textit{dim\_segment}, \textit{dim\_industry}, \textit{dim\_product} và \textit{dim\_date}. Dataset được cung cấp ở trạng thái sạch. Theo báo cáo QC, các quan hệ FK hợp lệ, không có dòng số dư không dương, không có duplicate khóa fact và không có NULL ở các bảng chính. Ký hiệu $B_t$ là tổng dư nợ cuối kỳ tại tháng $t$ và $B_{g,t}$ là dư nợ của nhóm $g$. Các quyết định xử lý chính và định nghĩa bao gồm:
 
-\begin{itemize}[label=$\bullet$, leftmargin=0.8cm, itemsep=0.25em]
+\begin{itemize}[label=$\bullet$, leftmargin=0.8cm, itemsep=0.2em]
     \item \textbf{Lấy một snapshot cho chỉ tiêu số dư:} Đơn vị quan sát của \textit{fact\_loan\_balance} là một hợp đồng tại một ngày snapshot cuối tháng. Dư nợ cuối kỳ (EOP): $B_t$ là tổng \textit{balance\_vnd} tại một ngày chốt tháng. Dư nợ danh mục tại một kỳ được tính bằng tổng \textit{balance\_vnd} của ngày chốt, không cộng dồn số dư qua nhiều tháng.
     
     \item \textbf{Kỳ báo cáo là 30/06/2026:} mốc MoM là 31/05/2026 và mốc YoY là 30/06/2025. 
@@ -165,7 +166,6 @@ Mỗi câu hỏi trọng tâm được trả lời qua các câu hỏi chi tiế
 Quy mô dư nợ tăng 1,25\% MoM và 10,95\% YoY. Tại 30/06/2026, dư nợ cuối kỳ đạt 98.367,3 tỷ VND. So với 31/05/2026 (97.151,5 tỷ), dư nợ tăng 1.215,8 tỷ, tương đương +1,25\% MoM. So với 30/06/2025 (88.662,1 tỷ), dư nợ tăng 9.705,2 tỷ, tương đương +10,95\% YoY. So với cuối năm 2025 (94.320,6 tỷ), quy mô tăng 4.046,7 tỷ (+4,29\%).
 
 DNBQ YTD 6T/2026 đạt 96.004,0 tỷ VND, tăng 0,4\% MoM và 13,3\% YoY theo KPI Power BI. So sánh YoY cho thấy mức bình quân từ đầu năm cao hơn cùng kỳ; chênh lệch tuyệt đối và cách tính cần kiểm tra measure trước khi khẳng định. Chuỗi dư nợ cuối tháng được thể hiện ở Hình~\ref{fig:q1-trend}.
-\vspace{0.2cm}
 
 \begin{figure}[H]
 \centering
@@ -173,8 +173,6 @@ DNBQ YTD 6T/2026 đạt 96.004,0 tỷ VND, tăng 0,4\% MoM và 13,3\% YoY theo K
 \caption{Dư nợ cuối tháng tăng từ 82.644 lên 98.367 tỷ đồng trong 18 tháng, chỉ giảm ở tháng 02/2025 và 02/2026. Nguồn: Power BI, giai đoạn 01/2025--06/2026.}
 \label{fig:q1-trend}
 \end{figure}
-
-\vspace{0.15cm}
 
 \textbf{2. Mức tăng/giảm dư nợ đến từ kỳ hạn, phân khúc, ngành, sản phẩm và ĐVKD nào? Trọng tâm là giá trị tăng tuyệt đối, không chỉ tỷ lệ tăng trưởng?}
 
@@ -186,16 +184,12 @@ Tăng trưởng tháng 6 theo kỳ hạn, phân khúc, ngành và sản phẩm. 
 
 Top 10 ĐVKD chiếm 40,10\% tổng dư nợ tại 30/06/2026, tăng 0,24 điểm phần trăm so với tháng trước nhưng giảm 1,33 điểm phần trăm so với cùng kỳ. Top 10 ngành chi tiết chiếm 71,68\%, gần như không đổi so tháng trước và giảm 0,24 điểm phần trăm so với cùng kỳ. Các so sánh này cần xác nhận lại Top 10 được xác định riêng cho từng kỳ; bảng Top 10 hiện tại trên dashboard không tự xác nhận thứ hạng Top 10 của kỳ trước (Hình~\ref{fig:q1-top10}).
 
-\vspace{0.2cm}
-
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{hinh2.final.jpg}
 \caption{Top 10 ĐVKD chiếm 40,10\% tổng dư nợ tại 30/06/2026. CN Bình Dương 4 tăng 10,0\% so với tháng trước nhưng giảm 0,9\% so với cùng kỳ năm trước. Nguồn: Power BI, đơn vị: tỷ đồng.}
 \label{fig:q1-top10}
 \end{figure}
-
-\vspace{0.15cm}
 
 Ngưỡng P90 lịch sử trong 18 tháng 01/2025–06/2026 là 41,33\% cho Top 10 ĐVKD và 72,01\% cho Top 10 ngành. Trước khi sử dụng làm căn cứ cảnh báo, cần tái lập chuỗi tỷ trọng và đối chiếu cách chọn Top 10, mẫu lịch sử và phương pháp tính P90.
 
@@ -213,7 +207,7 @@ Ngưỡng P90 lịch sử trong 18 tháng 01/2025–06/2026 là 41,33\% cho Top 
 \end{figure}
 
 \textbf{Dữ liệu cho thấy.}
-\begin{itemize}[label=-, leftmargin=0.8cm]
+\begin{itemize}[label=-, leftmargin=0.8cm, itemsep=0.2em]
     \item NII YTD đạt 802,5 tỷ đồng (tăng 19,7\% so với tháng trước) và TOI YTD đạt 1.165,5 tỷ đồng (tăng 20,5\% so với tháng trước).
     \item Phân khúc Micro và Small chiếm 50,2\% tổng NII (Micro: 32,6\%; Small: 17,6\%) và 43,3\% tổng TOI toàn khối KHDN.
     \item Ở cấp khách hàng, 10 khách hàng có NII lớn nhất gồm 4 khách hàng BIGCORP 1 (dẫn đầu là TNHH Xây dựng Vexada, 16,15 tỷ đồng), 3 khách hàng UPPER 1 và 3 khách hàng MEDIUM; không có khách hàng Micro hay Small. Tổng NII của 10 khách hàng này là 65,6 tỷ đồng, khoảng 8,2\% NII YTD.
@@ -224,7 +218,7 @@ Ngưỡng P90 lịch sử trong 18 tháng 01/2025–06/2026 là 41,33\% cho Top 
 
 \textbf{Nhóm suy luận.} Tỷ trọng NII của MICRO (32,6\%) cao hơn tỷ trọng dư nợ của phân khúc này (20,20\%), trong khi BIGCORP 1 ngược lại (12,3\% NII so với 21,37\% dư nợ). Điều này gợi ý thu nhập lãi trên mỗi đồng dư nợ của Micro cao hơn BIGCORP 1, nhưng cần tính NIM theo phân khúc để xác nhận. Nhóm cũng giả thuyết rằng BIGCORP có thể được giữ vì giá trị bán chéo dịch vụ phi tín dụng, tuy nhiên dữ liệu hiện có chưa kiểm chứng được điều này. Vì Micro và Small là mảng đóng góp NII lớn nhất, cần kiểm tra chéo ở Q3 chất lượng tín dụng của hai phân khúc này.
 
-\vspace{0.15cm}
+\vspace{0.2cm}
 
 \subsection*{Trả lời câu hỏi bổ sung (Phân tích chi tiết Q2)}
 
@@ -243,6 +237,8 @@ Tại thời điểm báo cáo (tháng 06/2026), NII YTD đạt 802,5 tỷ đồ
 
 Dữ liệu hiện có chưa đủ cơ sở để kết luận. NII và TOI YTD tăng khoảng 20\% từ tháng 5 sang tháng 6 vì đây là chỉ tiêu lũy kế: thu nhập của một tháng được cộng vào tổng của năm tháng trước, tương đương khoảng 1/5, trong khi dư nợ cuối kỳ chỉ tăng 1,25\% MoM. Hai mức tăng này không cùng bản chất nên không so sánh trực tiếp được. Để đánh giá thu nhập có tương xứng với quy mô dư nợ, cần so NII YTD với DNBQ YTD hoặc so với cùng kỳ năm trước.
 
+\vspace{0.2cm}
+
 \textbf{3. Phân khúc, ĐVKD hay nhóm khách hàng nào đang đóng góp trọng yếu?}
 
 Về phân khúc, Micro và Small là nguồn đóng góp lớn nhất, tổng cộng 50,2\% NII YTD (Micro: 32,6\%, Small: 17,6\%). Về khách hàng, nhóm BIGCORP 1 có giá trị tuyệt đối lớn nhất, tiêu biểu là TNHH Xây dựng Vexada (16,15 tỷ đồng). Về ĐVKD, Trung tâm KHDN Nam 1 và CN Nghệ An 2 là hai đơn vị đóng góp lớn nhất (Hình~\ref{fig:q2-branch}).
@@ -253,8 +249,6 @@ Về phân khúc, Micro và Small là nguồn đóng góp lớn nhất, tổng c
 \caption{Trung tâm KHDN Nam 1 (52,2 tỷ đồng) và CN Nghệ An 2 (42,7 tỷ đồng) dẫn đầu Top 10 ĐVKD theo NII YTD. Nam 1 chiếm 6,5\% NII YTD toàn khối và 18,5\% tổng NII của Top 10. Nguồn: Power BI, đến 30/06/2026.}
 \label{fig:q2-branch}
 \end{figure}
-
-\vspace{0.25cm}
 
 \textbf{Q3: Khoản vay có dấu hiệu rủi ro}
 
@@ -297,8 +291,6 @@ Tỷ lệ OD2 tại 30/06/2026 là 0,94\%, giảm 0,45 điểm phần trăm so v
 \label{fig:q3-ratio}
 \end{figure}
 
-\vspace{0.2cm}
-
 % TODO (Người 3): thêm bảng hoặc hình OD3-5 theo phân khúc (kèm tỷ trọng dư nợ), dòng vào OD2 theo ngành và ĐVKD từ trang CLTD.
 \textbf{2. Rủi ro tập trung ở ngành, đơn vị kinh doanh (ĐVKD) và phân khúc nào?}
 
@@ -323,7 +315,6 @@ Dư nợ OD2 giảm 429 tỷ đồng, từ 1.356,6 tỷ đồng ở 31/05 xuốn
 \end{figure}
 
 Một hợp đồng quyết định phần lớn dòng chuyển sang OD3. Hợp đồng AIV-LN-0007842 có dư nợ 390 tỷ đồng, thuộc phân khúc BIGCORP 1, ngành sản xuất điện - điện tử, do Trung tâm KHDN Bắc 1 hạch toán và quá hạn 96 ngày. Hợp đồng này chiếm 76\% dòng OD2 sang OD3. Nếu loại ra, dòng này chỉ còn 122 tỷ đồng ở 25 hợp đồng. Khi loại hợp đồng này khỏi cả dư nợ OD3-5 và tổng dư nợ, tỷ lệ OD3-5 ước tính là 2,24\%, thấp hơn 0,14 điểm phần trăm so với mức 2,38\% của cuối tháng trước (Hình~\ref{fig:q3-ratio}). Mức tăng 0,25 điểm phần trăm trên dashboard do đó đến toàn bộ từ một hợp đồng. Hợp đồng này cũng giải thích phần lớn biến động của Trung tâm KHDN Bắc 1, nơi tỷ lệ OD2 giảm từ 6,68\% xuống 1,24\% và tỷ lệ OD3-5 tăng từ 2,37\% lên 8,94\%, vì 390 tỷ đồng tương đương 6,35 điểm phần trăm trên tổng dư nợ 6.138,4 tỷ đồng của đơn vị này.
-
 
 \section{Tổng hợp phát hiện}
 
@@ -353,7 +344,6 @@ Với mỗi phát hiện, nhóm tách điều dữ liệu cho thấy khỏi đi�
     \textit{Insight:} Mức giảm của OD2 trên dashboard chưa cho thấy chất lượng tín dụng cải thiện, vì phần lớn dòng rời OD2 chuyển sang nhóm nợ xấu hơn và nợ mới vẫn liên tục đi vào OD2. Rủi ro của kỳ này tập trung vào một khoản lớn, khoản này quyết định bức tranh tỷ lệ chung. Phần nền của nợ xấu là nợ nhóm 5, gần như không đổi nhóm trong kỳ và nằm ở một số ngành.
 
 \end{enumerate}
-
 
 \section{Đề xuất}
 
@@ -408,7 +398,6 @@ Các đề xuất được xếp theo thứ tự nên làm. Với những việc
 
 \end{itemize}
 
-
 \section{Hạn chế và bước tiếp theo}
 
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=0.8cm]
@@ -427,7 +416,6 @@ Các đề xuất được xếp theo thứ tự nên làm. Với những việc
 
 \end{enumerate}
 
-
 \section{Tài liệu tham khảo}
 
 \begin{enumerate}[label={[\arabic*]}, leftmargin=0.8cm]
@@ -435,8 +423,6 @@ Các đề xuất được xếp theo thứ tự nên làm. Với những việc
     \item AI VIET NAM. ``Corporate Banking Analytics -- Quy trình phân tích dữ liệu tín dụng: Từ câu hỏi kinh doanh đến bộ chỉ số (KPIs), báo cáo trực quan, phân tích và đề xuất hành động''. Tài liệu mô tả project, AI VIET NAM -- End-to-End Data Analytics (eDA). [Online]. Available: \url{https://eda.aivietnam.edu.vn/}
 
     \item AI VIET NAM. ``eDA Conquer 2026 -- Corporate Banking Dataset''. Dữ liệu đã ẩn danh, đơn vị tiền quy ước, AI VIET NAM -- End-to-End Data Analytics (eDA). [Online]. Available: \url{https://drive.google.com/drive/folders/1wWKVXdnNdkfR7F1XSeqvoINo2em28rJ-?usp=drive_link}
-
-    \item Nhóm Datalyst. ``Dữ liệu, dashboard và mã nguồn báo cáo eDA Conquer 2026''. [Online]. Available: \url{https://github.com/AIVIETNAM-AIO-kiennguyen210/eda-conquer-mod2-2026-datalyst}
 
 \end{enumerate}
 
@@ -449,6 +435,7 @@ Phụ lục chứa các nội dung dùng để kiểm tra và tái lập phân t
 \begin{itemize}[label=--, leftmargin=0.8cm, itemsep=0.2em]
     \item \textbf{File Power BI:} \textit{Datalyst\_Conquer\_Mod2\_Dashboard\_v1}. Các hình 1 đến 8 và Bảng 1 đều lấy từ file này.
     \item \textbf{Data dictionary:} theo tài liệu mô tả bảng và trường dữ liệu của đề bài.
+    \item \textbf{Repository GitHub của nhóm:} \url{https://github.com/AIVIETNAM-AIO-kiennguyen210/eda-conquer-mod2-2026-datalyst}. Repository chứa dữ liệu (\texttt{data/}), file Power BI (\texttt{dashboard/}), slide (\texttt{slides/}) và mã nguồn báo cáo (\texttt{report/}).
 \end{itemize}
 
 \subsection*{B. Định nghĩa chỉ tiêu và dòng chuyển nhóm}
