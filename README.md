@@ -29,19 +29,19 @@ Dashboard được xây dựng bằng Power BI, file nằm trong thư mục [`da
 
 **Trang 1 – Overview**
 
-![Dashboard – Overview](docs/images/Datalyst_Conquer_Mod2_Dashboard_final-0.jpg)
+![Dashboard – Overview](docs/images/Datalyst_Conquer_Mod2_Power%20BI-0.jpg)
 
 **Trang 2 – Exposure**
 
-![Dashboard – Exposure](docs/images/Datalyst_Conquer_Mod2_Dashboard_final-1.jpg)
+![Dashboard – Exposure](docs/images/Datalyst_Conquer_Mod2_Power%20BI-1.jpg)
 
 **Trang 3 – NII & TOI**
 
-![Dashboard – NII & TOI](docs/images/Datalyst_Conquer_Mod2_Dashboard_final-2.jpg)
+![Dashboard – NII & TOI](docs/images/Datalyst_Conquer_Mod2_Power%20BI-2.jpg)
 
 **Trang 4 – Credit Quality**
 
-![Dashboard – Credit Quality](docs/images/Datalyst_Conquer_Mod2_Dashboard_final-3.jpg)
+![Dashboard – Credit Quality](docs/images/Datalyst_Conquer_Mod2_Power%20BI-3.jpg)
 
 ## Một số hình trong báo cáo
 
